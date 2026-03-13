@@ -1,5 +1,5 @@
 {
-  "name": "mybot",
+  "name": "@simoincodice/mybot",
   "version": "1.0.0",
   "description": "Useful package for discord bot based on discord js",
   "keywords": [
