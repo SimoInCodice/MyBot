@@ -1,6 +1,9 @@
 {
   "name": "@simoincodice/mybot",
-  "version": "1.0.2",
+  "version": "1.0.3",
+  "files": [
+    "dist"
+  ],
   "description": "Useful package for discord bot based on discord js",
   "keywords": [
     "mybot"
@@ -16,7 +19,7 @@
   "license": "MIT",
   "author": "SimoInCodice",
   "type": "module",
-  "main": "./src/index.ts",
+  "main": "./dist/index.js",
   "scripts": {
     "build": "tsc",
     "prepublishOnly": "npm run build"
