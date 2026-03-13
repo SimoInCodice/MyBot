@@ -1,6 +1,6 @@
 {
   "name": "@simoincodice/mybot",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Useful package for discord bot based on discord js",
   "keywords": [
     "mybot"
@@ -16,7 +16,7 @@
   "license": "MIT",
   "author": "SimoInCodice",
   "type": "module",
-  "main": "./dist/index.js",
+  "main": "./src/index.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
