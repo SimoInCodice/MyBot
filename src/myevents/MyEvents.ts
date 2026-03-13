@@ -1,5 +1,4 @@
-import { ClientEvents } from "discord.js";
-import { IMyEvent, MyEventData, MyEventKey, MyEventParams } from "./types";
+import { IMyEvent, MyEventData, MyEventKey, MyEventParams } from "./types.js";
 
 export default abstract class MyEvent<E extends MyEventKey> implements IMyEvent<E> {
     settings: MyEventData<E>;

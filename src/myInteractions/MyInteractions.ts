@@ -1,5 +1,5 @@
 import { AutocompleteInteraction, ButtonBuilder, ButtonInteraction, ChatInputCommandInteraction, Interaction, ModalSubmitInteraction, PermissionResolvable } from 'discord.js';
-import { BuilderData, MyComponentInteractionData, MyComponentInteractions, MyInteractionData } from './types';
+import { BuilderData, MyComponentInteractionData, MyComponentInteractions, MyInteractionData } from './types.js';
 
 export interface IMyInteraction<I extends Interaction> extends MyInteractionData<I> {
     execute(interaction: I): Promise<void>;

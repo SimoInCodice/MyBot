@@ -1,1 +1,3 @@
-console.log("Ciao");
+import MyClient from "./MyClient.js";
+
+export { MyClient };

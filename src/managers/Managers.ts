@@ -1,8 +1,8 @@
 import fs from 'fs';
-import { MyComponentInteractions } from '../myInteractions/types';
-import { MyCommandInteraction, MyComponentInteraction } from '../myInteractions/MyInteractions';
-import MyEvent from '../myevents/MyEvents';
-import { MyEventKey } from '../myevents/types';
+import { MyComponentInteractions } from '../myInteractions/types.js';
+import { MyCommandInteraction, MyComponentInteraction } from '../myInteractions/MyInteractions.js';
+import MyEvent from '../myevents/MyEvents.js';
+import { MyEventKey } from '../myevents/types.js';
 
 export default abstract class Manager<T> {
     constructor(readonly folderPath: string) {
