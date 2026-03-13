@@ -1,0 +1,26 @@
+{
+  "name": "mybot",
+  "version": "1.0.0",
+  "description": "Useful package for discord bot based on discord js",
+  "keywords": [
+    "mybot"
+  ],
+  "homepage": "https://github.com/SimoInCodice/MyBot#readme",
+  "bugs": {
+    "url": "https://github.com/SimoInCodice/MyBot/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SimoInCodice/MyBot.git"
+  },
+  "license": "MIT",
+  "author": "SimoInCodice",
+  "type": "commonjs",
+  "main": "./dist/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "discord.js": "^14.25.1"
+  }
+}
