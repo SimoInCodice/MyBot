@@ -147,7 +147,7 @@ export default class MyClient extends Client implements IMyClient {
                 try {
                     await component.execute(interaction);
                 } catch (e) {
-                    const error: Error = e as Error;
+                    const error: Error = e instanceof Error ? e : new Error(String(e));
                     const componentCustomID = "custom_id" in component.builder.data ? component.builder.data.custom_id : null;
                     if (componentCustomID) console.log(`🧩 ❌ Component error: ${componentCustomID.toUpperCase()}`);
                     console.log(`\n${error.stack}\n`);
@@ -159,11 +159,11 @@ export default class MyClient extends Client implements IMyClient {
         this.events = await Promise.all(await this.eventsManager.loadFiles());
     }
     async manageEvents() {
-        this.events.forEach(event => this.on(event.settings.name, async (...params: MyEventParams<keyof ClientEvents>) => {
+        this.events.forEach(event => this.on(event.settings.name, async (...params) => {
             try {
-                await event.execute(...params);
+                await (event.execute as any)(...params);
             } catch (e) {
-                const error: Error = e as Error;
+                const error: Error = e instanceof Error ? e : new Error(String(e));
                 console.log(`🔁 ❌ Event error: ${event.settings.name.toUpperCase()}`);
                 console.log(`\n${error.stack}\n`);
             }
