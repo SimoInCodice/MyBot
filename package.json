@@ -1,6 +1,6 @@
 {
   "name": "@simoincodice/mybot",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "Useful package for discord bot based on discord js",
   "keywords": [
     "mybot"
@@ -26,6 +26,6 @@
     "prepublishOnly": "npm run build"
   },
   "dependencies": {
-    "discord.js": "^14.25.1"
+    "discord.js": "^14.26.4"
   }
 }
