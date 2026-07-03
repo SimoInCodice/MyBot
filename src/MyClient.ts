@@ -3,7 +3,7 @@ import { MyCommandInteraction, MyComponentInteraction } from "./myInteractions/M
 import { CommandsManager, ComponentsManager, EventsManager } from "./managers/Managers.js";
 import { MyComponentInteractions } from "./myInteractions/types.js";
 import MyEvent from "./myevents/MyEvents.js";
-import { MyEventKey } from "./myevents/types.js";
+import { MyEventKey, MyEventParams } from "./myevents/types.js";
 
 export interface IMyClient {
     commandsManager: CommandsManager;
@@ -159,7 +159,7 @@ export default class MyClient extends Client implements IMyClient {
         this.events = await Promise.all(await this.eventsManager.loadFiles());
     }
     async manageEvents() {
-        this.events.forEach(event => this.on(event.settings.name, async (...params) => {
+        this.events.forEach(event => this.on(event.settings.name, async (...params: MyEventParams<keyof ClientEvents>) => {
             try {
                 await event.execute(...params);
             } catch (e) {
