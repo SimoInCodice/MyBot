@@ -5,7 +5,7 @@ export type MyEventKey = keyof ClientEvents;
 export type MyEventParams<E extends MyEventKey> = ClientEvents[E];
 
 export type MyEventData<E extends MyEventKey> = {
-    name: E,
+    name: E | (string & {}),
     once?: boolean
 }
 
