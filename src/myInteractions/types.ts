@@ -1,4 +1,4 @@
-import { AnySelectMenuInteraction, ButtonBuilder, ButtonInteraction, ChannelSelectMenuBuilder, ChannelSelectMenuInteraction, ChatInputCommandInteraction, Interaction, InteractionType, ModalBuilder, ModalSubmitInteraction, PermissionResolvable, RoleSelectMenuBuilder, RoleSelectMenuInteraction, SlashCommandBuilder, SlashCommandOptionsOnlyBuilder, StringSelectMenuBuilder, StringSelectMenuInteraction, UserSelectMenuBuilder, UserSelectMenuInteraction } from "discord.js";
+import { AnySelectMenuInteraction, ButtonBuilder, ButtonInteraction, ChannelSelectMenuBuilder, ChannelSelectMenuInteraction, ChatInputCommandInteraction, ContextMenuCommandBuilder, ContextMenuCommandInteraction, Interaction, InteractionType, MessageContextMenuCommandInteraction, ModalBuilder, ModalSubmitInteraction, PermissionResolvable, RoleSelectMenuBuilder, RoleSelectMenuInteraction, SlashCommandBuilder, SlashCommandOptionsOnlyBuilder, StringSelectMenuBuilder, StringSelectMenuInteraction, UserContextMenuCommandInteraction, UserSelectMenuBuilder, UserSelectMenuInteraction } from "discord.js";
 
 /* v Builders v */
 
@@ -17,7 +17,8 @@ export type BuilderData<I extends Interaction> = I extends ButtonInteraction ? B
                             (I extends RoleSelectMenuInteraction ? RoleSelectMenuBuilder :
                             (I extends UserSelectMenuInteraction ? UserSelectMenuBuilder :
                             (I extends ChannelSelectMenuInteraction ? ChannelSelectMenuBuilder :
-                            (I extends ChatInputCommandInteraction ? SlashCommandBuilder | SlashCommandOptionsOnlyBuilder : never)
+                            (I extends ChatInputCommandInteraction ? SlashCommandBuilder | SlashCommandOptionsOnlyBuilder : 
+                            (I extends ContextMenuCommandInteraction | MessageContextMenuCommandInteraction | UserContextMenuCommandInteraction ? ContextMenuCommandBuilder : never))
                             )))));
 
 /* ^ Builders ^ */
@@ -25,6 +26,8 @@ export type BuilderData<I extends Interaction> = I extends ButtonInteraction ? B
 /* v Interactions v */
 
 export type MyComponentInteractions = ButtonInteraction | ModalSubmitInteraction | AnySelectMenuInteraction;
+
+export type MyCommandInteractions = ChatInputCommandInteraction | MessageContextMenuCommandInteraction | UserContextMenuCommandInteraction;
 
 export type MyInteractionData<I extends Interaction> = {
     builder: BuilderData<I>,

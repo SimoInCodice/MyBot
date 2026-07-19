@@ -1,5 +1,5 @@
 import { AutocompleteInteraction, ButtonBuilder, ButtonInteraction, ChatInputCommandInteraction, Interaction, ModalSubmitInteraction, PermissionResolvable } from 'discord.js';
-import { BuilderData, MyComponentInteractionData, MyComponentInteractions, MyInteractionData } from './types.js';
+import { BuilderData, MyCommandInteractions, MyComponentInteractionData, MyComponentInteractions, MyInteractionData } from './types.js';
 
 export interface IMyInteraction<I extends Interaction> extends MyInteractionData<I> {
     execute(interaction: I): Promise<void>;
@@ -22,8 +22,8 @@ export abstract class MyInteraction<I extends Interaction> implements IMyInterac
     abstract execute(interaction: I): Promise<void>;
 }
 
-export abstract class MyCommandInteraction extends MyInteraction<ChatInputCommandInteraction> {
-    constructor(settings: MyInteractionData<ChatInputCommandInteraction>) {
+export abstract class MyCommandInteraction extends MyInteraction<MyCommandInteractions> {
+    constructor(settings: MyInteractionData<MyCommandInteractions>) {
         super(settings);
     }
     abstract autocomplete(interaction: AutocompleteInteraction): Promise<void>;
