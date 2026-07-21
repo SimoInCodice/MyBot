@@ -22,7 +22,7 @@ export abstract class MyInteraction<I extends Interaction> implements IMyInterac
     abstract execute(interaction: I | Interaction): Promise<void>;
 }
 
-export abstract class MyCommandInteraction<I extends MyCommandInteractions> extends MyInteraction<MyCommandInteractions> {
+export abstract class MyCommandInteraction<I extends MyCommandInteractions> extends MyInteraction<I> {
     constructor(settings: MyInteractionData<I>) {
         super(settings);
     }

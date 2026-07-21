@@ -1,13 +1,13 @@
 import { ActivityType, ButtonBuilder, ChannelType, Client, ClientEvents, ClientOptions, Events, GuildMember, Interaction, MessageFlags, ModalBuilder, ModalComponentBuilder, REST, Routes } from "discord.js";
 import { MyCommandInteraction, MyComponentInteraction } from "./myInteractions/MyInteractions.js";
 import { CommandsManager, ComponentsManager, EventsManager } from "./managers/Managers.js";
-import { MyComponentInteractions } from "./myInteractions/types.js";
+import { MyCommandInteractions, MyComponentInteractions } from "./myInteractions/types.js";
 import MyEvent from "./myevents/MyEvents.js";
 import { MyEventKey, MyEventParams } from "./myevents/types.js";
 
 export interface IMyClient {
     commandsManager: CommandsManager;
-    commands: MyCommandInteraction[];
+    commands: MyCommandInteraction<MyCommandInteractions>[];
     componentsManager: ComponentsManager;
     components: MyComponentInteraction<MyComponentInteractions>[];
     eventsManager: EventsManager;
@@ -18,7 +18,7 @@ export interface IMyClient {
 
 export default class MyClient extends Client implements IMyClient {
     commandsManager: CommandsManager;
-    commands: MyCommandInteraction[];
+    commands: MyCommandInteraction<MyCommandInteractions>[];
     componentsManager: ComponentsManager;
     components: MyComponentInteraction<MyComponentInteractions>[];
     eventsManager: EventsManager;

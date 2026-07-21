@@ -2,6 +2,8 @@ import { AnySelectMenuInteraction, ButtonBuilder, ButtonInteraction, ChannelSele
 
 /* v Builders v */
 
+export type MyCommandBuilder = SlashCommandBuilder | SlashCommandOptionsOnlyBuilder | ContextMenuCommandBuilder;
+
 export type MyComponentBuilder = ButtonBuilder |
 ModalBuilder  |
 StringSelectMenuBuilder |
@@ -18,7 +20,7 @@ export type BuilderData<I extends Interaction> = I extends ButtonInteraction ? B
                             (I extends UserSelectMenuInteraction ? UserSelectMenuBuilder :
                             (I extends ChannelSelectMenuInteraction ? ChannelSelectMenuBuilder :
                             (I extends ChatInputCommandInteraction ? SlashCommandBuilder | SlashCommandOptionsOnlyBuilder : 
-                            (I extends ContextMenuCommandInteraction | MessageContextMenuCommandInteraction | UserContextMenuCommandInteraction ? ContextMenuCommandBuilder : MyCommandInteractions | MyComponentInteractions))
+                            (I extends ContextMenuCommandInteraction | MessageContextMenuCommandInteraction | UserContextMenuCommandInteraction ? ContextMenuCommandBuilder : never))
                             )))));
 
 /* ^ Builders ^ */

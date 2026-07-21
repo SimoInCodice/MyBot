@@ -17,7 +17,7 @@ export default abstract class Manager<T> {
     }
 }
 
-export class CommandsManager extends Manager<MyCommandInteractions> {
+export class CommandsManager extends Manager<MyCommandInteraction<MyCommandInteractions>> {
     constructor(readonly folderPath: string) {
         super(folderPath);
     }
