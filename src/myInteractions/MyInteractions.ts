@@ -2,7 +2,7 @@ import { AutocompleteInteraction, ButtonBuilder, ButtonInteraction, ChatInputCom
 import { BuilderData, MyCommandInteractions, MyComponentInteractionData, MyComponentInteractions, MyInteractionData } from './types.js';
 
 export interface IMyInteraction<I extends Interaction> extends MyInteractionData<I> {
-    execute(interaction: I): Promise<void>;
+    execute(interaction: I | Interaction): Promise<void>;
 }
 
 export abstract class MyInteraction<I extends Interaction> implements IMyInteraction<I> {
@@ -19,11 +19,11 @@ export abstract class MyInteraction<I extends Interaction> implements IMyInterac
         this.onlyDevs = onlyDevs;
     }
 
-    abstract execute(interaction: I): Promise<void>;
+    abstract execute(interaction: I | Interaction): Promise<void>;
 }
 
-export abstract class MyCommandInteraction extends MyInteraction<MyCommandInteractions> {
-    constructor(settings: MyInteractionData<MyCommandInteractions>) {
+export abstract class MyCommandInteraction<I extends MyCommandInteractions> extends MyInteraction<MyCommandInteractions> {
+    constructor(settings: MyInteractionData<I>) {
         super(settings);
     }
     abstract autocomplete(interaction: AutocompleteInteraction): Promise<void>;

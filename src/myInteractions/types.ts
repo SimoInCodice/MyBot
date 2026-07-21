@@ -18,16 +18,16 @@ export type BuilderData<I extends Interaction> = I extends ButtonInteraction ? B
                             (I extends UserSelectMenuInteraction ? UserSelectMenuBuilder :
                             (I extends ChannelSelectMenuInteraction ? ChannelSelectMenuBuilder :
                             (I extends ChatInputCommandInteraction ? SlashCommandBuilder | SlashCommandOptionsOnlyBuilder : 
-                            (I extends ContextMenuCommandInteraction | MessageContextMenuCommandInteraction | UserContextMenuCommandInteraction ? ContextMenuCommandBuilder : never))
+                            (I extends ContextMenuCommandInteraction | MessageContextMenuCommandInteraction | UserContextMenuCommandInteraction ? ContextMenuCommandBuilder : MyCommandInteractions | MyComponentInteractions))
                             )))));
 
 /* ^ Builders ^ */
 
 /* v Interactions v */
 
-export type MyComponentInteractions = ButtonInteraction | ModalSubmitInteraction | AnySelectMenuInteraction;
-
 export type MyCommandInteractions = ChatInputCommandInteraction | MessageContextMenuCommandInteraction | UserContextMenuCommandInteraction;
+
+export type MyComponentInteractions = ButtonInteraction | ModalSubmitInteraction | AnySelectMenuInteraction;
 
 export type MyInteractionData<I extends Interaction> = {
     builder: BuilderData<I>,
