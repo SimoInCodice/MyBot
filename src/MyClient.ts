@@ -118,7 +118,7 @@ export default class MyClient extends Client implements IMyClient {
     }
     async manageComponents() {
         this.on(Events.InteractionCreate, async (interaction) => {
-            if (!interaction.isMessageComponent() && !interaction.isButton() && !interaction.isAnySelectMenu()) return;
+            if (!interaction.isMessageComponent() && !interaction.isButton() && !interaction.isAnySelectMenu() && !interaction.isModalSubmit()) return;
             if (interaction.channel?.type != ChannelType.DM) {
                 const component = this.components.find(c => "custom_id" in c.builder.data ? (c.optionsInCustomId ? interaction.customId.startsWith(c.builder.data.custom_id as string) : c.builder.data.custom_id === interaction.customId) : null);
                 if (!component) return;
